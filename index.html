@@ -5,160 +5,256 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gao Meng - Resume</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.5;
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 20px;
-            background: #f5f7fa;
-            color: #1e2a3e;
+            background-color: #e2e8f0;
+            font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, -apple-system, sans-serif;
+            line-height: 1.4;
+            padding: 30px 20px;
         }
-        .resume-card {
+        .resume {
+            max-width: 1000px;
+            margin: 0 auto;
             background: white;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
-        h1 {
-            margin: 0 0 0.25rem;
-            font-size: 2rem;
+        .header {
+            background: #1e3a5f;
+            color: white;
+            padding: 18px 30px;
         }
-        .subhead {
-            font-size: 1.1rem;
-            color: #2c7da0;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
+        .header h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .header .sub {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 12px;
         }
         .contact {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            font-size: 0.9rem;
-            color: #4a5568;
+            gap: 18px;
+            font-size: 13px;
+        }
+        .contact span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .content {
+            padding: 20px 30px 25px 30px;
         }
         .section {
-            margin-bottom: 1.5rem;
+            margin-bottom: 18px;
+            page-break-inside: avoid;
+            break-inside: avoid;
         }
         .section-title {
+            font-size: 16px;
             font-weight: 700;
-            font-size: 1.2rem;
             color: #1e3a5f;
             border-left: 4px solid #2c7da0;
             padding-left: 10px;
-            margin-bottom: 0.75rem;
+            margin-bottom: 10px;
         }
-        .job {
-            margin-bottom: 1.2rem;
+        .entry {
+            margin-bottom: 16px;
         }
         .job-header {
             display: flex;
             justify-content: space-between;
             font-weight: 600;
+            margin-bottom: 4px;
             flex-wrap: wrap;
+        }
+        .job-title {
+            color: #0b3b5f;
+            font-size: 14px;
+        }
+        .job-date {
+            color: #4a5568;
+            font-weight: normal;
+            font-size: 13px;
         }
         .company {
-            font-style: italic;
+            font-weight: 500;
             color: #2d3748;
-            margin-bottom: 0.25rem;
+            margin-bottom: 6px;
+            font-size: 13px;
+            font-style: italic;
         }
-        ul {
-            margin: 0.25rem 0 0 1.2rem;
+        .desc-list {
+            list-style: none;
             padding-left: 0;
+            margin-top: 4px;
         }
-        li {
-            margin-bottom: 0.25rem;
+        .desc-list li {
+            margin-bottom: 5px;
+            padding-left: 16px;
+            position: relative;
+            font-size: 12px;
+            line-height: 1.45;
+            color: #2d3748;
         }
-        .skills {
+        .desc-list li::before {
+            content: "•";
+            position: absolute;
+            left: 4px;
+            color: #2c7da0;
+            font-weight: bold;
+        }
+        .skill-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
+            gap: 8px;
+            margin-top: 6px;
         }
-        .skill-tag {
-            background: #e2e8f0;
-            padding: 0.2rem 0.8rem;
+        .skill-item {
+            background: #f1f5f9;
+            padding: 4px 12px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 11.5px;
+            color: #1e293b;
         }
-        @media (max-width: 600px) {
-            .resume-card { padding: 1.25rem; }
+        .self-eval {
+            background: #f8fafc;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 12px;
+            line-height: 1.45;
+            color: #1e293b;
+            margin-bottom: 6px;
+        }
+        @media print {
+            body { background: white; padding: 0; margin: 0; }
+            .resume { max-width: 100%; margin: 0; border-radius: 0; box-shadow: none; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .header { background: #1e3a5f !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .skill-item { background: #f1f5f9 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .self-eval { background: #f8fafc !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .section, .entry { page-break-inside: avoid; break-inside: avoid; }
+            .content { padding: 15px 25px; }
         }
     </style>
 </head>
 <body>
-<div class="resume-card">
-    <h1>Gao Meng</h1>
-    <div class="subhead">Project Coordinator | Operations Analyst | Bilingual Professional</div>
-    <div class="contact">
-        <span>📞 +86 132 0623 4519</span>
-        <span>📧 gmbusiness@163.com</span>
-        <span>📍 Chengdu, China</span>
-    </div>
-
-    <div class="section">
-        <div class="section-title">Summary</div>
-        <p>Nearly 4 years of experience at Deloitte and Dubai financial center. Skilled in data analysis, industry research, bilingual report writing, and cross-team coordination. Strong ability to learn quickly and manage multiple projects. Seeking roles in project coordination, customer success, or operations.</p >
-    </div>
-
-    <div class="section">
-        <div class="section-title">Work Experience</div>
-        
-        <div class="job">
-            <div class="job-header">
-                <span>Transfer Pricing Analyst</span>
-                <span>2021.11 – 2025.07</span>
-            </div>
-            <div class="company">Deloitte Global Delivery Center (GDC) – Tax</div>
-            <ul>
-                <li>Conducted industry and benchmarking analysis for 20+ cross-border projects; applied quartile method to determine arm's length ranges.</li>
-                <li>Authored bilingual compliance reports and built standardized templates, improving efficiency by ~20%.</li>
-                <li>Coordinated with audit, legal, and overseas teams to ensure timely delivery.</li>
-            </ul>
-        </div>
-
-        <div class="job">
-            <div class="job-header">
-                <span>Bank Affairs Officer</span>
-                <span>2025.10 – 2026.03</span>
-            </div>
-            <div class="company">Wangkang Group Dubai Financial Center (returned due to conflict)</div>
-            <ul>
-                <li>Managed bank accounts for 10+ subsidiaries across Africa and Latin America; tracked interest and exchange rates.</li>
-                <li>Produced bilingual fund analysis reports and handled KYC/AML compliance.</li>
-                <li>Negotiated deposit rates and optimized fund allocation.</li>
-            </ul>
-        </div>
-
-        <div class="job">
-            <div class="job-header">
-                <span>Online Promotion Supervisor</span>
-                <span>2020.06 – 2021.07</span>
-            </div>
-            <div class="company">Zhaoce Advertising Media</div>
-            <ul>
-                <li>Monitored competitors, analyzed user data, and improved campaign ROI by ~20%.</li>
-                <li>Produced regular market analysis reports.</li>
-            </ul>
+<div class="resume">
+    <div class="header">
+        <h1>Gao Meng</h1>
+        <div class="sub">Project Coordinator | Data Analyst | Bilingual Professional</div>
+        <div class="contact">
+            <span>📞 +86 132 0623 4519</span>
+            <span>📧 gmbusiness@163.com</span>
+            <span>📍 Chengdu, China</span>
         </div>
     </div>
+    <div class="content">
 
-    <div class="section">
-        <div class="section-title">Education & Certifications</div>
-        <p><strong>BA in English Translation</strong> – Chongqing Institute of Foreign Studies (2015–2019)<br>
-        TEM-4 · CET-6 · Computer Level 1 · Driver's License C1</p >
-    </div>
+        <!-- Education -->
+        <div class="section">
+            <div class="section-title">Education</div>
+            <div><strong>Chongqing Institute of Foreign Studies</strong> · BA in Translation (English)</div>
+            <div>2015.09 – 2019.06 | TEM-4, CET-6</div>
+        </div>
 
-    <div class="section">
-        <div class="section-title">Technical Skills</div>
-        <div class="skills">
-            <span class="skill-tag">Excel (Pivot, Formulas)</span>
-            <span class="skill-tag">Word / PowerPoint</span>
-            <span class="skill-tag">Wind (Data Query)</span>
-            <span class="skill-tag">TP Catalyst / ONESOURCE</span>
-            <span class="skill-tag">SQL (Basic)</span>
+        <!-- Work Experience (reverse chronological: Dubai → Deloitte → Zhaoce) -->
+        <div class="section">
+            <div class="section-title">Work Experience</div>
+
+            <!-- Dubai Bank Affairs -->
+            <div class="entry">
+                <div class="job-header">
+                    <span class="job-title">Bank Affairs Officer</span>
+                    <span class="job-date">2025.10 – 2026.03</span>
+                </div>
+                <div class="company">Wangkang Group Dubai Financial Center (Returned due to conflict)</div>
+                <ul class="desc-list">
+                    <li>Tracked financial market trends (interest rates, exchange rates) and prepared bilingual fund analysis reports for management.</li>
+                    <li>Managed bank accounts for 10+ subsidiaries across Africa and Latin America; coordinated cross-border payments and compliance (KYC, AML).</li>
+                    <li>Negotiated deposit rates with international banks, optimized fund allocation strategies.</li>
+                </ul>
+            </div>
+
+            <!-- Deloitte Transfer Pricing (no GDC) -->
+            <div class="entry">
+                <div class="job-header">
+                    <span class="job-title">Transfer Pricing Analyst</span>
+                    <span class="job-date">2021.11 – 2025.07</span>
+                </div>
+                <div class="company">Deloitte Tax</div>
+                <ul class="desc-list">
+                    <li><strong>Industry research & data analysis</strong>: Conducted industry and benchmarking analysis for manufacturing, trading, technology sectors using OECD guidelines; applied quartile method to determine arm's length ranges.</li>
+                    <li><strong>Report writing</strong>: Independently authored industry analysis and comparability sections for 20+ projects; contributed to full English reports.</li>
+                    <li><strong>Process & compliance</strong>: Built standardized templates, improved efficiency by ~20%; tracked global tax policy changes (OECD, BEPS 2.0) and assessed business impact.</li>
+                    <li><strong>Cross-team coordination</strong>: Worked closely with audit, legal, and overseas teams to ensure timely delivery.</li>
+                </ul>
+            </div>
+
+            <!-- Zhaoce Advertising -->
+            <div class="entry">
+                <div class="job-header">
+                    <span class="job-title">Online Promotion Supervisor</span>
+                    <span class="job-date">2020.06 – 2021.07</span>
+                </div>
+                <div class="company">Zhaoce Advertising Media Co., Ltd.</div>
+                <ul class="desc-list">
+                    <li>Monitored competitor activities and industry trends; produced regular analysis reports to support strategy adjustments.</li>
+                    <li>Analyzed user engagement data and optimized content, improving campaign ROI by ~20%.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Core Competencies -->
+        <div class="section">
+            <div class="section-title">Core Competencies</div>
+            <div class="skill-grid">
+                <span class="skill-item">Industry Research</span>
+                <span class="skill-item">Data Collation & Analysis</span>
+                <span class="skill-item">Report Writing (EN/ZH)</span>
+                <span class="skill-item">Cross-functional Coordination</span>
+                <span class="skill-item">Policy Tracking</span>
+                <span class="skill-item">Process Optimization</span>
+                <span class="skill-item">Fast Learner</span>
+            </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="section">
+            <div class="section-title">Technical Skills</div>
+            <div class="skill-grid">
+                <span class="skill-item">Excel (Pivot, Formulas, Charts)</span>
+                <span class="skill-item">Word / PowerPoint</span>
+                <span class="skill-item">Wind (Data Query)</span>
+                <span class="skill-item">TP Catalyst / ONESOURCE</span>
+                <span class="skill-item">SQL (Basic)</span>
+            </div>
+        </div>
+
+        <!-- Language & Certificates -->
+        <div class="section">
+            <div class="section-title">Language & Certificates</div>
+            <div class="skill-grid">
+                <span class="skill-item">English (TEM-4, Fluent)</span>
+                <span class="skill-item">Mandarin (Native)</span>
+                <span class="skill-item">Computer Level 1</span>
+                <span class="skill-item">Driver's License C1</span>
+            </div>
+        </div>
+
+        <!-- Self Evaluation -->
+        <div class="section">
+            <div class="section-title">Self Evaluation</div>
+            <div class="self-eval">
+                Nearly 4 years of international experience (Deloitte + Dubai) in research, data analysis, report writing, and cross-team coordination. Proficient in Excel and Wind. Strong written English. Highly adaptable – successfully transitioned from English major to tax professional within 3 months. Detail-oriented, self-motivated, and comfortable with multi-tasking. Open to new challenges and quick to learn industry-specific knowledge.
+            </div>
         </div>
     </div>
 </div>
